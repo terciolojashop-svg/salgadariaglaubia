@@ -255,6 +255,13 @@ export default function App() {
   );
   const cartCount = cart.reduce((count, cartItem) => count + cartItem.quantity, 0);
 
+  const defaultPassword = 'glaubia123';
+  let actualPassword = defaultPassword;
+  try {
+    actualPassword = localStorage.getItem('glaubia_admin_password') || defaultPassword;
+  } catch (e) {}
+  const isCustomPassword = actualPassword !== defaultPassword;
+
   return (
     <div className="min-h-screen bg-stone-950 text-stone-100 flex flex-col">
       <Navbar
@@ -339,16 +346,17 @@ export default function App() {
             </div>
             
             <p className="text-xs text-stone-400 mt-2 leading-relaxed">
-              Este painel é exclusivo para a proprietária. Por favor, insira a senha de acesso (padrão: <code className="text-orange-400 bg-stone-950 px-1 py-0.5 rounded font-mono">Falar com o Admin</code>):
+              Este painel é exclusivo para a proprietária. Por favor, insira a senha de acesso{!isCustomPassword ? (
+                <span> (padrão: <code className="text-orange-400 bg-stone-950 px-1 py-0.5 rounded font-mono">{defaultPassword}</code>)</span>
+              ) : ''}:
             </p>
 
             <form onSubmit={(e) => {
               e.preventDefault();
               const formData = new FormData(e.currentTarget);
               const password = formData.get('adminPassword') as string;
-              const actualPassword = localStorage.getItem('glaubia_admin_password') || 'glaubia123sal';
               
-              if (password === actualPassword || password === 'admin') {
+              if (password === actualPassword) {
                 setIsAdminAuthenticated(true);
                 try {
                   localStorage.setItem('glaubia_admin_authenticated', 'true');
