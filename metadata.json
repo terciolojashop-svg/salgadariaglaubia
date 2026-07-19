@@ -1,0 +1,6 @@
+{
+  "name": "Salgadaria Glaubia - Cardápio Digital",
+  "description": "Cardápio digital interativo para Salgadaria Glaubia com pedidos direto na plataforma, chat integrado em tempo real e dashboard administrativo de relatórios.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

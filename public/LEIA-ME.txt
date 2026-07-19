@@ -1,0 +1,11 @@
+COMO ADICIONAR A SUA LOGOMARCA ORIGINAL AQUI:
+
+1. Salve o arquivo de imagem da sua logomarca com o nome exato de:
+   logo.png
+
+2. Faça o upload desse arquivo "logo.png" diretamente nesta pasta "public".
+   (Você pode arrastar e soltar o arquivo aqui usando o gerenciador de arquivos no painel à esquerda do editor de código do AI Studio).
+
+3. O aplicativo irá carregar e exibir a sua logomarca ORIGINAL em tamanho ajustado (redimensionado), preservando 100% dos seus traços e cores originais sem nenhuma distorção ou alteração!
+
+4. Se o arquivo "logo.png" não estiver aqui, o aplicativo exibirá automaticamente um belo texto estilizado como alternativa segura.
