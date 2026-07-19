@@ -346,7 +346,7 @@ export default function App() {
               e.preventDefault();
               const formData = new FormData(e.currentTarget);
               const password = formData.get('adminPassword') as string;
-              const actualPassword = localStorage.getItem('glaubia_admin_password') || 'glaubia123';
+              const actualPassword = localStorage.getItem('glaubia_admin_password') || 'glaubia123sal';
               
               if (password === actualPassword || password === 'admin') {
                 setIsAdminAuthenticated(true);
