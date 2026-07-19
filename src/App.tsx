@@ -339,7 +339,7 @@ export default function App() {
             </div>
             
             <p className="text-xs text-stone-400 mt-2 leading-relaxed">
-              Este painel é exclusivo para a proprietária. Por favor, insira a senha de acesso (padrão: <code className="text-orange-400 bg-stone-950 px-1 py-0.5 rounded font-mono">glaubia123</code>):
+              Este painel é exclusivo para a proprietária. Por favor, insira a senha de acesso (padrão: <code className="text-orange-400 bg-stone-950 px-1 py-0.5 rounded font-mono">Falar com o Admin</code>):
             </p>
 
             <form onSubmit={(e) => {
