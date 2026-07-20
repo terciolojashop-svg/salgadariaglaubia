@@ -27,9 +27,8 @@ const CATEGORY_ICONS: { [key: string]: string } = {
   'Sucos': '🍹'
 };
 
-// Caminhos sugeridos para as imagens de cada categoria.
-// Salve os arquivos de imagem dentro da pasta 'public/categories/' com esses nomes exatos.
-const CATEGORY_IMAGES: { [key: string]: string } = {
+// Caminhos locais das imagens se o usuário colocar os arquivos dentro da pasta 'public/categories/'
+const LOCAL_CATEGORY_IMAGES: { [key: string]: string } = {
   'Salgados Tradicionais': '/categories/salgados_tradicionais.jpg',
   'Salgados Massa de Batata': '/categories/salgados_massa_de_batata.jpg',
   'Salgados Pequenos Comum': '/categories/salgados_pequenos_comum.jpg',
@@ -39,6 +38,19 @@ const CATEGORY_IMAGES: { [key: string]: string } = {
   'Refrigerante 2 Litros': '/categories/refrigerante_2_litros.jpg',
   'Refrigerante Lata': '/categories/refrigerante_lata.jpg',
   'Sucos': '/categories/sucos.jpg'
+};
+
+// Imagens premium de alta qualidade do Unsplash para carregar como fallback se o arquivo local não existir
+const FALLBACK_CATEGORY_IMAGES: { [key: string]: string } = {
+  'Salgados Tradicionais': 'https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?auto=format&fit=crop&w=1200&q=80',
+  'Salgados Massa de Batata': 'https://images.unsplash.com/photo-1601050690597-df056fb4ce78?auto=format&fit=crop&w=1200&q=80',
+  'Salgados Pequenos Comum': 'https://images.unsplash.com/photo-1541532713592-79a0317b6b77?auto=format&fit=crop&w=1200&q=80',
+  'Salgados Pequenos Batata': 'https://images.unsplash.com/photo-1565557623262-b51c2513a641?auto=format&fit=crop&w=1200&q=80',
+  'Pastéis': 'https://images.unsplash.com/photo-1589187151053-5ec8818e661b?auto=format&fit=crop&w=1200&q=80',
+  'Refrigerante 1 Litro': 'https://images.unsplash.com/photo-1622483767028-3f66f32aef97?auto=format&fit=crop&w=1200&q=80',
+  'Refrigerante 2 Litros': 'https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&w=1200&q=80',
+  'Refrigerante Lata': 'https://images.unsplash.com/photo-1563227812-0ea4c22e6cc8?auto=format&fit=crop&w=1200&q=80',
+  'Sucos': 'https://images.unsplash.com/photo-1578314675249-a6910f80cc4e?auto=format&fit=crop&w=1200&q=80'
 };
 
 export default function ClientMenu({
@@ -52,10 +64,28 @@ export default function ClientMenu({
   setCartOpen
 }: ClientMenuProps) {
   const [selectedCategory, setSelectedCategory] = useState<string>('Salgados Tradicionais');
-  const [imageError, setImageError] = useState<{ [key: string]: boolean }>({});
+  
+  // Controlamos qual URL estamos tentando carregar para cada categoria
+  const [categoryImageSrcs, setCategoryImageSrcs] = useState<{ [key: string]: string }>(LOCAL_CATEGORY_IMAGES);
+  const [failedCategories, setFailedCategories] = useState<{ [key: string]: boolean }>({});
 
   const handleImageError = (category: string) => {
-    setImageError(prev => ({ ...prev, [category]: true }));
+    const currentSrc = categoryImageSrcs[category];
+    const localSrc = LOCAL_CATEGORY_IMAGES[category];
+    
+    if (currentSrc === localSrc) {
+      // Se a imagem local na pasta public falhar (não existir), carrega o fallback de alta qualidade do Unsplash
+      setCategoryImageSrcs(prev => ({
+        ...prev,
+        [category]: FALLBACK_CATEGORY_IMAGES[category]
+      }));
+    } else {
+      // Se até a imagem do Unsplash falhar, ocultamos a imagem dessa categoria para não quebrar o layout
+      setFailedCategories(prev => ({
+        ...prev,
+        [category]: true
+      }));
+    }
   };
 
   // Get unique categories
@@ -173,10 +203,10 @@ export default function ClientMenu({
         <div className="mt-8">
           {/* Banner de Categoria com suporte para imagem na pasta public/categories */}
           <div className="relative h-32 sm:h-40 w-full overflow-hidden rounded-2xl border border-stone-800 bg-gradient-to-r from-orange-950/40 via-stone-900/40 to-stone-900 mb-8 flex items-end p-6 group">
-            {/* Imagem de Fundo (Carrega de public/categories/ se existir) */}
-            {!imageError[selectedCategory] && (
+            {/* Imagem de Fundo (Tenta carregar local da pasta public, cai para Unsplash se não existir) */}
+            {!failedCategories[selectedCategory] && (
               <img
-                src={CATEGORY_IMAGES[selectedCategory]}
+                src={categoryImageSrcs[selectedCategory]}
                 alt={selectedCategory}
                 onError={() => handleImageError(selectedCategory)}
                 className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
@@ -203,9 +233,6 @@ export default function ClientMenu({
                   </p>
                 </div>
               </div>
-              <span className="text-[9px] font-mono font-bold bg-stone-950/80 border border-stone-800/80 rounded-md px-2 py-1 text-stone-400 self-start sm:self-center">
-                Imagem: public{CATEGORY_IMAGES[selectedCategory]}
-              </span>
             </div>
           </div>
 
