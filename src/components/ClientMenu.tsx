@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { MenuItem, CartItem } from '../types';
-import { Plus, Minus, ShoppingCart, Trash2, Heart, Award, Sparkles, Send } from 'lucide-react';
+import { Plus, Minus, ShoppingCart, Trash2, Heart, Award, Sparkles, Send, Instagram } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
 import BrandLogo from './BrandLogo';
 
@@ -27,6 +27,20 @@ const CATEGORY_ICONS: { [key: string]: string } = {
   'Sucos': '🍹'
 };
 
+// Caminhos sugeridos para as imagens de cada categoria.
+// Salve os arquivos de imagem dentro da pasta 'public/categories/' com esses nomes exatos.
+const CATEGORY_IMAGES: { [key: string]: string } = {
+  'Salgados Tradicionais': '/categories/salgados_tradicionais.jpg',
+  'Salgados Massa de Batata': '/categories/salgados_massa_de_batata.jpg',
+  'Salgados Pequenos Comum': '/categories/salgados_pequenos_comum.jpg',
+  'Salgados Pequenos Batata': '/categories/salgados_pequenos_batata.jpg',
+  'Pastéis': '/categories/pasteis.jpg',
+  'Refrigerante 1 Litro': '/categories/refrigerante_1_litro.jpg',
+  'Refrigerante 2 Litros': '/categories/refrigerante_2_litros.jpg',
+  'Refrigerante Lata': '/categories/refrigerante_lata.jpg',
+  'Sucos': '/categories/sucos.jpg'
+};
+
 export default function ClientMenu({
   menuItems,
   cart,
@@ -38,6 +52,11 @@ export default function ClientMenu({
   setCartOpen
 }: ClientMenuProps) {
   const [selectedCategory, setSelectedCategory] = useState<string>('Salgados Tradicionais');
+  const [imageError, setImageError] = useState<{ [key: string]: boolean }>({});
+
+  const handleImageError = (category: string) => {
+    setImageError(prev => ({ ...prev, [category]: true }));
+  };
 
   // Get unique categories
   const categories = Array.from(new Set(menuItems.map(item => item.category)));
@@ -86,10 +105,26 @@ export default function ClientMenu({
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.2, duration: 0.6 }}
-            className="mx-auto mt-4 max-w-lg text-sm text-stone-400 sm:text-base"
+            className="mx-auto mt-4 max-w-lg text-sm text-stone-400 sm:text-base animate-fadeIn"
           >
             Perfeitos para o seu lanche ou evento. Faça o seu pedido diretamente aqui na nossa plataforma e acompanhe em tempo real!
           </motion.p>
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3, duration: 0.6 }}
+            className="mt-4 flex justify-center"
+          >
+            <a
+              href="https://www.instagram.com/salgadaria_glaubia/"
+              target="_blank"
+              referrerPolicy="no-referrer"
+              className="inline-flex items-center space-x-2 rounded-full bg-gradient-to-r from-pink-600/10 via-orange-600/10 to-amber-500/10 hover:from-pink-600/20 hover:to-amber-500/20 px-4 py-1.5 text-xs font-semibold text-orange-400 border border-orange-500/20 shadow-sm hover:border-orange-500/40 transition duration-300"
+            >
+              <Instagram className="h-4 w-4 text-pink-500 animate-pulse" />
+              <span>Siga-nos no Instagram @salgadaria_glaubia</span>
+            </a>
+          </motion.div>
         </div>
       </section>
 
@@ -136,10 +171,43 @@ export default function ClientMenu({
 
         {/* Menu Items Grid */}
         <div className="mt-8">
-          <h2 className="font-display text-xl font-bold text-white border-l-4 border-orange-500 pl-3 mb-6 flex items-center space-x-2">
-            <span>{CATEGORY_ICONS[selectedCategory]}</span>
-            <span>{selectedCategory}</span>
-          </h2>
+          {/* Banner de Categoria com suporte para imagem na pasta public/categories */}
+          <div className="relative h-32 sm:h-40 w-full overflow-hidden rounded-2xl border border-stone-800 bg-gradient-to-r from-orange-950/40 via-stone-900/40 to-stone-900 mb-8 flex items-end p-6 group">
+            {/* Imagem de Fundo (Carrega de public/categories/ se existir) */}
+            {!imageError[selectedCategory] && (
+              <img
+                src={CATEGORY_IMAGES[selectedCategory]}
+                alt={selectedCategory}
+                onError={() => handleImageError(selectedCategory)}
+                className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                referrerPolicy="no-referrer"
+              />
+            )}
+            
+            {/* Gradiente escuro para garantir leitura perfeita do texto */}
+            <div className="absolute inset-0 bg-gradient-to-t from-stone-950 via-stone-950/70 to-transparent"></div>
+            
+            {/* Detalhe de luz sutil no fundo */}
+            <div className="absolute -top-10 -left-10 h-32 w-32 rounded-full bg-orange-500/10 blur-2xl"></div>
+
+            {/* Conteúdo do Banner */}
+            <div className="relative z-10 flex flex-col sm:flex-row sm:items-center sm:justify-between w-full gap-2">
+              <div className="flex items-center space-x-3">
+                <span className="text-3xl filter drop-shadow-md">{CATEGORY_ICONS[selectedCategory]}</span>
+                <div>
+                  <h2 className="font-display text-xl sm:text-2xl font-black text-white tracking-tight drop-shadow-md">
+                    {selectedCategory}
+                  </h2>
+                  <p className="text-[11px] text-stone-300 font-medium drop-shadow mt-0.5">
+                    {selectedCategory.includes('Salgados') ? 'Feitos artesanalmente e fritos na hora com muito amor' : 'Gelados e refrescantes para acompanhar seu lanche'}
+                  </p>
+                </div>
+              </div>
+              <span className="text-[9px] font-mono font-bold bg-stone-950/80 border border-stone-800/80 rounded-md px-2 py-1 text-stone-400 self-start sm:self-center">
+                Imagem: public{CATEGORY_IMAGES[selectedCategory]}
+              </span>
+            </div>
+          </div>
 
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             <AnimatePresence mode="popLayout">
@@ -174,8 +242,7 @@ export default function ClientMenu({
                     </div>
 
                     {/* Quantity Selector / Add button */}
-                    <div className="mt-5 flex items-center justify-between border-t border-stone-800/60 pt-4">
-                      <span className="text-[10px] text-stone-500 font-mono">ID: {item.id}</span>
+                    <div className="mt-5 flex items-center justify-end border-t border-stone-800/60 pt-4">
                       
                       {qtyInCart > 0 ? (
                         <div className="flex items-center space-x-3 rounded-full bg-stone-900 p-1 border border-stone-800 shadow-inner">
@@ -213,18 +280,13 @@ export default function ClientMenu({
         </div>
 
         {/* Simple visual menu card reference */}
-        <div className="mt-16 rounded-2xl bg-gradient-to-r from-stone-900 to-stone-950 border border-stone-800/80 p-6 flex flex-col md:flex-row items-center justify-between gap-6">
-          <div className="flex items-center space-x-4">
-            <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-orange-500/10 text-orange-400 border border-orange-500/20">
-              <Award className="h-6 w-6" />
-            </div>
-            <div>
-              <h4 className="font-display font-bold text-white text-base">Garantia de Qualidade Glaubia</h4>
-              <p className="text-xs text-stone-400 mt-1 max-w-md">Todos os nossos salgados são produzidos artesanalmente, com ingredientes selecionados e fritos em óleo limpo, garantindo crocância e sabor sem igual!</p>
-            </div>
+        <div className="mt-16 rounded-2xl bg-gradient-to-r from-stone-900 to-stone-950 border border-stone-800/80 p-6 flex items-center gap-4">
+          <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-orange-500/10 text-orange-400 border border-orange-500/20">
+            <Award className="h-6 w-6" />
           </div>
-          <div className="text-xs font-mono text-stone-500 border border-stone-800 rounded-lg px-4 py-2 bg-stone-900/30">
-            Salgadeira oficial @salgadaria_glaubia
+          <div>
+            <h4 className="font-display font-bold text-white text-base">Garantia de Qualidade Glaubia</h4>
+            <p className="text-xs text-stone-400 mt-1 max-w-2xl leading-relaxed">Todos os nossos salgados são produzidos artesanalmente, com ingredientes selecionados e fritos em óleo limpo, garantindo crocância e sabor sem igual!</p>
           </div>
         </div>
       </main>

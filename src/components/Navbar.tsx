@@ -1,5 +1,5 @@
 import React from 'react';
-import { ShoppingBag, Shield, User, MessageCircle, Phone } from 'lucide-react';
+import { ShoppingBag, Shield, User, MessageCircle, Phone, Instagram } from 'lucide-react';
 import BrandLogo from './BrandLogo';
 
 interface NavbarProps {
@@ -51,15 +51,26 @@ export default function Navbar({
           )}
 
           {/* Contact Header */}
-          <a
-            href="https://wa.me/5588988086441"
-            target="_blank"
-            referrerPolicy="no-referrer"
-            className="hidden items-center space-x-1 text-xs text-stone-300 hover:text-orange-400 transition lg:flex"
-          >
-            <Phone className="h-3.5 w-3.5 text-orange-500" />
-            <span>(88) 9 8808-6441</span>
-          </a>
+          <div className="hidden items-center space-x-3.5 lg:flex">
+            <a
+              href="https://wa.me/5588988086441"
+              target="_blank"
+              referrerPolicy="no-referrer"
+              className="flex items-center space-x-1 text-xs text-stone-300 hover:text-orange-400 transition"
+            >
+              <Phone className="h-3.5 w-3.5 text-orange-500" />
+              <span>(88) 9 8808-6441</span>
+            </a>
+            <a
+              href="https://www.instagram.com/salgadaria_glaubia/"
+              target="_blank"
+              referrerPolicy="no-referrer"
+              className="flex items-center space-x-1 text-xs text-stone-300 hover:text-orange-400 transition border-l border-stone-800 pl-3.5"
+            >
+              <Instagram className="h-3.5 w-3.5 text-orange-500" />
+              <span>@salgadaria_glaubia</span>
+            </a>
+          </div>
 
           {/* Role Switcher */}
           <div className="flex items-center rounded-full bg-stone-900 p-0.5 border border-stone-800">

@@ -1,0 +1,289 @@
+[
+  {
+    "id": "trad_coxinha",
+    "name": "Coxinha Tradicional",
+    "price": 5,
+    "description": "Salgado frito clássico recheado com frango desfiado temperado",
+    "category": "Salgados Tradicionais"
+  },
+  {
+    "id": "trad_bola",
+    "name": "Bola Mista",
+    "price": 5,
+    "description": "Salgado frito em formato de bola recheado com presunto e queijo",
+    "category": "Salgados Tradicionais"
+  },
+  {
+    "id": "trad_kibe",
+    "name": "Kibe de Carne",
+    "price": 6,
+    "description": "Salgado frito de trigo com carne moída, hortelã e temperos especiais",
+    "category": "Salgados Tradicionais"
+  },
+  {
+    "id": "trad_enrolado",
+    "name": "Enrolado de Salsicha",
+    "price": 5,
+    "description": "Salgado frito com massa clássica e recheio de salsicha",
+    "category": "Salgados Tradicionais"
+  },
+  {
+    "id": "batata_coxinha",
+    "name": "Coxinha (Massa de Batata)",
+    "price": 6,
+    "description": "Coxinha premium com massa super leve e cremosa de batata",
+    "category": "Salgados Massa de Batata"
+  },
+  {
+    "id": "batata_bola",
+    "name": "Bola Mista (Massa de Batata)",
+    "price": 6,
+    "description": "Salgado de bola premium com massa leve de batata",
+    "category": "Salgados Massa de Batata"
+  },
+  {
+    "id": "batata_risole",
+    "name": "Risole Especial",
+    "price": 7,
+    "description": "Risole frito sequinho com massa de batata e recheio especial",
+    "category": "Salgados Massa de Batata"
+  },
+  {
+    "id": "comum_20",
+    "name": "20 Salgados Pequenos (Comum)",
+    "price": 10,
+    "description": "Porção com 20 mini salgados fritos tradicionais (tamanho festa)",
+    "category": "Salgados Pequenos Comum"
+  },
+  {
+    "id": "comum_30",
+    "name": "30 Salgados Pequenos (Comum)",
+    "price": 15,
+    "description": "Porção com 30 mini salgados fritos tradicionais (tamanho festa)",
+    "category": "Salgados Pequenos Comum"
+  },
+  {
+    "id": "comum_50",
+    "name": "50 Salgados Pequenos (Comum)",
+    "price": 25,
+    "description": "Porção com 50 mini salgados fritos tradicionais (tamanho festa)",
+    "category": "Salgados Pequenos Comum"
+  },
+  {
+    "id": "comum_100",
+    "name": "100 Salgados Pequenos (Comum)",
+    "price": 40,
+    "description": "Cento completo (100 unidades) de mini salgados fritos tradicionais",
+    "category": "Salgados Pequenos Comum"
+  },
+  {
+    "id": "batata_20",
+    "name": "20 Salgados Pequenos (Massa de Batata)",
+    "price": 15,
+    "description": "20 unidades de mini salgados premium feitos com massa de batata",
+    "category": "Salgados Pequenos Batata"
+  },
+  {
+    "id": "batata_30",
+    "name": "30 Salgados Pequenos (Massa de Batata)",
+    "price": 20,
+    "description": "30 unidades de mini salgados premium feitos com massa de batata",
+    "category": "Salgados Pequenos Batata"
+  },
+  {
+    "id": "batata_50",
+    "name": "50 Salgados Pequenos (Massa de Batata)",
+    "price": 35,
+    "description": "50 unidades de mini salgados premium feitos com massa de batata",
+    "category": "Salgados Pequenos Batata"
+  },
+  {
+    "id": "batata_100",
+    "name": "100 Salgados Pequenos (Massa de Batata)",
+    "price": 60,
+    "description": "Cento completo (100 unidades) de mini salgados premium com massa de batata",
+    "category": "Salgados Pequenos Batata"
+  },
+  {
+    "id": "pastel_frango",
+    "name": "Pastel de Frango",
+    "price": 6,
+    "description": "Frango desfiado suculento com requeijão cremoso",
+    "category": "Pastéis"
+  },
+  {
+    "id": "pastel_misto",
+    "name": "Pastel Misto",
+    "price": 6,
+    "description": "Recheio clássico de presunto e queijo derretido",
+    "category": "Pastéis"
+  },
+  {
+    "id": "pastel_carne_sol",
+    "name": "Pastel de Carne do Sol",
+    "price": 7,
+    "description": "Carne do sol desfiada acebolada com queijo coalho",
+    "category": "Pastéis"
+  },
+  {
+    "id": "pastel_carne_moida",
+    "name": "Pastel de Carne Moída",
+    "price": 7,
+    "description": "Carne moída temperada com queijo derretido",
+    "category": "Pastéis"
+  },
+  {
+    "id": "pastel_queijo",
+    "name": "Pastel de Queijo",
+    "price": 6,
+    "description": "Bastante queijo muçarela derretido com orégano",
+    "category": "Pastéis"
+  },
+  {
+    "id": "pastel_pizza",
+    "name": "Pastel de Pizza",
+    "price": 8,
+    "description": "Presunto, queijo, rodelas de tomate fresco e orégano",
+    "category": "Pastéis"
+  },
+  {
+    "id": "pastel_calabresa",
+    "name": "Pastel de Calabresa",
+    "price": 8,
+    "description": "Calabresa moída com queijo muçarela derretido",
+    "category": "Pastéis"
+  },
+  {
+    "id": "pastel_pastelao",
+    "name": "Pastelão da Casa",
+    "price": 12,
+    "description": "Pastel gigante recheado com presunto, queijo, frango, requeijão e orégano",
+    "category": "Pastéis"
+  },
+  {
+    "id": "refri_1l_cocazero",
+    "name": "Coca-Cola Zero 1L",
+    "price": 10,
+    "description": "Refrigerante garrafa de 1 litro sem açúcar gelado",
+    "category": "Refrigerante 1 Litro"
+  },
+  {
+    "id": "refri_1l_cocacomum",
+    "name": "Coca-Cola Comum 1L",
+    "price": 10,
+    "description": "Refrigerante garrafa de 1 litro original gelado",
+    "category": "Refrigerante 1 Litro"
+  },
+  {
+    "id": "refri_1l_guarana",
+    "name": "Guaraná Antarctica 1L",
+    "price": 8,
+    "description": "Refrigerante garrafa de 1 litro gelado",
+    "category": "Refrigerante 1 Litro"
+  },
+  {
+    "id": "refri_1l_cajuina",
+    "name": "Cajuína São Geraldo 1L",
+    "price": 10,
+    "description": "Cajuína tradicional nordestina garrafa de 1 litro gelada",
+    "category": "Refrigerante 1 Litro"
+  },
+  {
+    "id": "refri_2l_cocazero",
+    "name": "Coca-Cola Zero 2L",
+    "price": 14,
+    "description": "Refrigerante garrafa de 2 litros sem açúcar gelado",
+    "category": "Refrigerante 2 Litros"
+  },
+  {
+    "id": "refri_2l_cocacomum",
+    "name": "Coca-Cola Comum 2L",
+    "price": 14,
+    "description": "Refrigerante garrafa de 2 litros original gelado",
+    "category": "Refrigerante 2 Litros"
+  },
+  {
+    "id": "refri_2l_guarana",
+    "name": "Guaraná Antarctica 2L",
+    "price": 14,
+    "description": "Refrigerante garrafa de 2 litros original gelado",
+    "category": "Refrigerante 2 Litros"
+  },
+  {
+    "id": "refri_2l_cajuina",
+    "name": "Cajuína São Geraldo 2L",
+    "price": 14,
+    "description": "Cajuína garrafa de 2 litros gelada",
+    "category": "Refrigerante 2 Litros"
+  },
+  {
+    "id": "refri_lata_cocazero",
+    "name": "Coca-Cola Zero Lata",
+    "price": 6,
+    "description": "Lata 350ml gelada sem açúcar",
+    "category": "Refrigerante Lata"
+  },
+  {
+    "id": "refri_lata_cocacomum",
+    "name": "Coca-Cola Comum Lata",
+    "price": 6,
+    "description": "Lata 350ml gelada sabor original",
+    "category": "Refrigerante Lata"
+  },
+  {
+    "id": "refri_lata_guarana",
+    "name": "Guaraná Antarctica Lata",
+    "price": 6,
+    "description": "Lata 350ml gelada",
+    "category": "Refrigerante Lata"
+  },
+  {
+    "id": "refri_lata_fantauva",
+    "name": "Fanta Uva Lata",
+    "price": 6,
+    "description": "Lata 350ml gelada",
+    "category": "Refrigerante Lata"
+  },
+  {
+    "id": "refri_lata_fantalaranja",
+    "name": "Fanta Laranja Lata",
+    "price": 6,
+    "description": "Lata 350ml gelada",
+    "category": "Refrigerante Lata"
+  },
+  {
+    "id": "refri_lata_cajuina",
+    "name": "Cajuína São Geraldo Lata",
+    "price": 6,
+    "description": "Lata 350ml gelada",
+    "category": "Refrigerante Lata"
+  },
+  {
+    "id": "suco_maracuja",
+    "name": "Suco de Maracujá 500ml",
+    "price": 6,
+    "description": "Suco natural da fruta bem gelado",
+    "category": "Sucos"
+  },
+  {
+    "id": "suco_goiaba",
+    "name": "Suco de Goiaba 500ml",
+    "price": 5,
+    "description": "Suco natural da fruta bem gelado",
+    "category": "Sucos"
+  },
+  {
+    "id": "suco_manga",
+    "name": "Suco de Manga 500ml",
+    "price": 5,
+    "description": "Suco natural da fruta bem gelado",
+    "category": "Sucos"
+  },
+  {
+    "id": "suco_caja",
+    "name": "Suco de Cajá 500ml",
+    "price": 5,
+    "description": "Suco natural da fruta bem gelado",
+    "category": "Sucos"
+  }
+]

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Instagram } from 'lucide-react';
 import Navbar from './components/Navbar';
 import ClientMenu from './components/ClientMenu';
 import CheckoutModal from './components/CheckoutModal';
@@ -412,9 +413,21 @@ export default function App() {
 
       {/* Aesthetic Footer */}
       <footer className="bg-stone-950 border-t border-stone-900 py-6 text-center text-xs text-stone-500">
-        <div className="mx-auto max-w-7xl px-4 space-y-1.5">
+        <div className="mx-auto max-w-7xl px-4 space-y-2">
           <p>© 2026 Salgadaria Glaubia. Todos os direitos reservados.</p>
-          <p className="font-mono text-[10px] text-stone-600">Salgados e pastéis feitos com paixão. Delivery (88) 9 8808-6441</p>
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-center sm:space-x-4 space-y-1 sm:space-y-0 text-[11px]">
+            <p className="font-mono text-stone-600">Salgados e pastéis feitos com paixão. Delivery (88) 9 8808-6441</p>
+            <span className="hidden sm:inline text-stone-800">|</span>
+            <a 
+              href="https://www.instagram.com/salgadaria_glaubia/" 
+              target="_blank" 
+              referrerPolicy="no-referrer"
+              className="inline-flex items-center justify-center space-x-1 text-orange-500 hover:text-orange-400 transition font-medium"
+            >
+              <Instagram className="h-3.5 w-3.5" />
+              <span>@salgadaria_glaubia</span>
+            </a>
+          </div>
         </div>
       </footer>
     </div>
